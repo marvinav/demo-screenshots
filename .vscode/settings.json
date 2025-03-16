@@ -1,0 +1,11 @@
+{
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "cSpell.words": [
+        "geoip",
+        "INITDB",
+        "IPDB",
+        "Ktoja",
+        "openmeteo",
+        "ORGID"
+    ],
+}

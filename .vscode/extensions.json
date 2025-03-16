@@ -1,0 +1,14 @@
+{
+    "recommendations": [
+        "usernamehw.errorlens",
+        "dbaeumer.vscode-eslint",
+        "spmeesseman.vscode-taskexplorer",
+        "mongodb.mongodb-vscode",
+        "streetsidesoftware.code-spell-checker",
+        "yoavbls.pretty-ts-errors",
+        "visualstudioexptteam.vscodeintellicode",
+        "visualstudioexptteam.intellicode-api-usage-examples",
+        "mhutchie.git-graph",
+        "donjayamanne.githistory"
+    ]
+}

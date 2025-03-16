@@ -1,0 +1,12 @@
+## Builds
+node_modules
+dist
+builds
+
+## Enviroments
+.env*
+!.env.public
+!.env.make
+!.env.example
+.makerc
+!.makerc.example
