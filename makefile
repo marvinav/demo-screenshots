@@ -1,4 +1,4 @@
-include .makerc
+include config/.makerc
 
 ## !!! Override make environment variables in .makerc file !!!
 # Environment
@@ -11,10 +11,10 @@ TAG					?=latest# Tag version docker images
 MAKEFLAGS				+= --no-print-directory
 SHELL					:=/bin/bash
 COMPOSE_PROJECT_NAME	=${PROJECT_NAME}-${TARGET}
-COMPOSE_FILE			=docker-compose.${TARGET}.yml
+COMPOSE_FILE			=infra/docker-compose.${TARGET}.yml
 COMMAND_BASE			=docker compose -p ${COMPOSE_PROJECT_NAME} -f ${COMPOSE_FILE}
-API_ENV					=.env.${TARGET} --env-file .env.public
-COMMAND_ENV				=${COMMAND_BASE} --env-file ${API_ENV}
+API_ENV					=--env-file config/.env.${TARGET} --env-file config/.env.public
+COMMAND_ENV				=${COMMAND_BASE} ${API_ENV} 
 
 ## ---
 ## Make to build, run and manage project.

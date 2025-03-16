@@ -5,46 +5,46 @@ include:
 services:
   dev:
     build:
-      context: ./
-      dockerfile: ./Dockerfile
+      context: ../
+      dockerfile: ./infra/Dockerfile
       target: dev
     volumes:
-      - ./:/node
+      - ../:/node
       - client_node_modules:/node/client/node_modules
 
   client:
     build:
-      context: ./
-      dockerfile: ./Dockerfile
+      context: ../
+      dockerfile: ./infra/Dockerfile
       target: client-dev
     ports:
       - 9000:5173
     volumes:
-      - ./:/node
+      - ../:/node
       - client_node_modules:/node/client/node_modules
 
   storybook:
     build:
-      context: ./
-      dockerfile: ./Dockerfile
+      context: ../
+      dockerfile: ./infra/Dockerfile
       target: client-dev
     ports:
       - 9001:9001
     command: npm run storybook:docker
     volumes:
-      - ./:/node
+      - ../:/node
       - client_node_modules:/node/client/node_modules
 
   storybook-build:
     profiles:
       - "explicit-only"
     build:
-      context: ./
-      dockerfile: ./Dockerfile
+      context: ../
+      dockerfile: ./infra/Dockerfile
       target: client-dev
     command: npm run build-storybook
     volumes:
-      - ./:/node
+      - ../:/node
       - client_node_modules:/node/client/node_modules
 
 volumes:

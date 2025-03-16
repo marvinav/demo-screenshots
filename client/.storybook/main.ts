@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-vite';
+import { mergeConfig } from 'vite';
 
 const config: StorybookConfig = {
   "stories": [
@@ -16,6 +17,8 @@ const config: StorybookConfig = {
     "options": {
     }
   },
-
+  viteFinal(config) {
+    return mergeConfig(config, { server: { allowedHosts: true } });
+  }
 };
 export default config;

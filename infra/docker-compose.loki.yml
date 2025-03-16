@@ -1,0 +1,30 @@
+services:
+  loki:
+    depends_on:
+      storybook-build:
+        condition: service_completed_successfully
+    profiles:
+      - "explicit-only"
+    build:
+      context: ../client
+      dockerfile: ../infra/Dockerfile.loki
+      target: loki
+    volumes:
+      - ../client/storybook-static:/app/storybook-static
+      - ../client/.loki:/app/.loki
+    # command: tail -f /dev/null
+    command: npx loki test --verboseRenderer --chromeRetries 3 --requireReference ${STORYBOOK_URI} ${LOKI_CHROME_FLAG}
+
+  loki-server:
+    depends_on:
+      - storybook
+    profiles:
+      - "explicit-only"
+    build:
+      context: ../client
+      dockerfile: ../infra/Dockerfile.loki
+      target: loki
+    volumes:
+      - ../client/.loki:/app/.loki
+    # command: tail -f /dev/null
+    command: npx loki test --verboseRenderer --chromeRetries 3 --requireReference --reactUri http://storybook:9001 ${LOKI_CHROME_FLAG}

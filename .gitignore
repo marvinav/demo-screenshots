@@ -6,7 +6,6 @@ builds
 ## Enviroments
 .env*
 !.env.public
-!.env.make
 !.env.example
 .makerc
 !.makerc.example
