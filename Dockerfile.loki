@@ -31,7 +31,6 @@ COPY storybook-static ./storybook-static
 # Package json with loki configuration
 COPY .lokirc.json .
 COPY package.json .
-
 # CMD tail -f package.json
 CMD npx loki test --verboseRenderer --chromeRetries 3 --requireReference ${STORYBOOK_URI} --chromeFlags="--headless --hide-scrollbars --no-sandbox --disable-dev-shm-usage --disable-gpu --js-flags=--random-seed=1157259157 --disable-checker-imaging --force-device-scale-factor=1 --no-first-run --disable-client-side-phishing-detection --disable-extensions --disable-site-isolation-trials --disable-background-timer-throttling"
 

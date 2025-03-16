@@ -1,0 +1,15 @@
+services:
+  loki:
+    profiles:
+      - "explicit-only"
+    build:
+      context: ./client
+      dockerfile: ../Dockerfile.loki
+      target: loki
+    volumes:
+      - ./client/storybook-static:/app/storybook-static
+      - ./client/.loki:/app/.loki
+    environment:
+      STORYBOOK_URI: --reactUri file:./storybook-static
+    # command: tail -f /dev/null
+    command: npx loki test --verboseRenderer --chromeRetries 3 --requireReference ${STORYBOOK_URI} ${LOKI_CHROME_FLAG}

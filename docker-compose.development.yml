@@ -1,4 +1,7 @@
 # Development version of docker compose
+include:
+  - docker-compose.loki.yml
+
 services:
   dev:
     build:
@@ -33,6 +36,8 @@ services:
       - client_node_modules:/node/client/node_modules
 
   storybook-build:
+    profiles:
+      - "explicit-only"
     build:
       context: ./
       dockerfile: ./Dockerfile
@@ -41,19 +46,6 @@ services:
     volumes:
       - ./:/node
       - client_node_modules:/node/client/node_modules
-
-  loki:
-    build:
-      context: ./client
-      dockerfile: ../Dockerfile.loki
-      target: loki
-    volumes:
-      - ./client/storybook-static:/app/storybook-static
-      - ./client/.loki:/app/.loki
-    environment:
-      STORYBOOK_URI: --reactUri file:./storybook-static
-    # command: tail -f /dev/null
-    command: npx loki test --verboseRenderer --chromeRetries 3 --requireReference ${STORYBOOK_URI} ${LOKI_CHROME_FLAG}
 
 volumes:
   client_node_modules:
