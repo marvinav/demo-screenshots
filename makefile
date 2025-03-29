@@ -79,8 +79,7 @@ tag: ## Build containers or container (SERVICE=servince_name)
 	@docker image tag ${COMPOSE_PROJECT_NAME}-${SERVICE} ${COMPOSE_PROJECT_NAME}-${SERVICE}:${TAG}
 
 pack: ## Pack the latest docker image
-	@mkdir -p builds
-	docker save -o builds/${COMPOSE_PROJECT_NAME}-${SERVICE}.tar ${COMPOSE_PROJECT_NAME}-${SERVICE}:${TAG}
+	@mkdir -p builds && docker save -o builds/${COMPOSE_PROJECT_NAME}-${SERVICE}.tar ${COMPOSE_PROJECT_NAME}-${SERVICE}:${TAG}
 
 publish: ## Upload the latest packed docker image to a remote host
 	scp builds/${COMPOSE_PROJECT_NAME}-${SERVICE}.tar ${HOST}:${HOST_DOCKER_PATH}
