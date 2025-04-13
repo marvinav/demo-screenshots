@@ -20,3 +20,18 @@ make run SERVICE=storybook
 
 ### Run screenshot tests
 make run SERVICE=loki
+
+
+## Project structure
+
+### infra
+All scripts and files related to development and deployment
+
+### config
+Env variables
+
+### client
+React application
+
+### client/.loki
+Loki output
