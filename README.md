@@ -3,6 +3,8 @@ Here you could find quick setup of screenshot testing for React application whic
 1. Storybook
 2. loki
 
+The full article you could find [here](https://dev.to/marvinav/screenshot-testing-gotta-catch-em-all-3123) 
+
 ## Requirements
 1. Docker
 2. make (optional)
