@@ -1,5 +1,8 @@
 {
   "diffingEngine": "pixelmatch",
+  "looks-same": {
+    "tolerance": "3"
+  },
   "configurations": {
     "chrome.laptop": {
       "target": "chrome.app",

@@ -1,4 +1,0 @@
-## SERVER AND DEV
-TARGET=development
-HOST_DOCKER_PATH=~/builds
-
